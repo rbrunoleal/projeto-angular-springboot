@@ -1,0 +1,20 @@
+<style>
+#img{
+  margin-left: 30%;
+}
+</style>
+
+<nav id="navbar" class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Workshop</a>
+  </div>
+</nav>
+<div class="container">
+  <img id="img" src="https://computacao.ufba.br/sites/computacao.ufba.br/files/logo_dcc_1.png" class="img-fluid"><br>
+  <div class="text-center">
+    <button (click)="Listar()" class="btn btn-primary">Listar</button>
+    <button (click)="Adicionar()" style="margin: 8px;" class="btn btn-success">Novo</button>
+  </div>
+</div>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,144 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Cadastrar Funcionarios</h3>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <label for="">Nome:</label>
+                    <input type="text" id="NomeFuncionario" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">CPF:</label>
+                    <input type="text" id="CPFFuncionario" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label>Departamento: </label> 
+                     <select placeholder="Departamento" (change)="changeDepartament($event)">
+                        <option>-- Escolha o Departamento -- </option>
+                        <option *ngFor="let departamento of departamentos" value="{{departamento.id}}">                        
+                            {{ departamento.descricao }}
+                        </option>
+                      </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Cargo: </label>
+                    <select placeholder="Cargo" id="CargoFuncionario">
+                        <option>-- Escolha o Cargo --</option>
+                        <option *ngFor="let cargo of cargos" value="{{cargo.id}}">
+                            {{cargo.descricao}}
+                        </option>
+                    </select>
+                </div>
+
+                <h2 class="text-left font-weight-bold">Endereço</h2>                
+            
+                <div class="form-group">
+                    <label>Estado: </label> 
+                     <select placeholder="Estado" (change)="changeState($event)">
+                        <option>-- Escolha o Estado -- </option>
+                        <option *ngFor="let estado of estados" value="{{estado.id}}">                        
+                            {{ estado.descricao }}
+                        </option>
+                      </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Cidade: </label>
+                    <select placeholder="Cidade" id="CidadeFuncionario">
+                        <option>-- Escolha a Cidade --</option>
+                        <option *ngFor="let cidade of cidades" value="{{cidade.id}}">
+                            {{cidade.nomeCidade}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Rua:</label>
+                    <input type="text" id="RuaFuncionario" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Bairro:</label>
+                    <input type="text" id="BairroFuncionario" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Número:</label>
+                    <input type="text" id="NumeroFuncionario" class="form-control">
+                </div>         
+                <h2 class="text-left font-weight-bold">Contato</h2>                         
+
+                <form>
+                    <div class="form-row align-items-center">
+                      <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputName">Tipo:</label>
+                        <select placeholder="Tipo" id="TipoContato">
+                            <option>-- Escolha o Tipo -- </option>
+                            <option *ngFor="let x of Types" value="{{x.tipo}}" >{{x.descricao}} </option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 my-1">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Campo:</label>
+                        <div class="input-group">                          
+                          <input type="text" class="form-control" id="CampoContato">
+                        </div>
+                      </div>
+                      <div class="col-auto my-1">
+                        <button (click)="addContact()" class="btn btn-light text-success"> ADD CONTATO </button>
+                      </div>
+                    </div>
+                </form>
+
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-center">
+                              <th>TIPO</th>
+                              <th>CAMPO</th>   
+                              <th></th>                                                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cont of contatos" class="text-center">                              
+                              <td>{{cont.tipo}}</td>                      
+                              <td>{{cont.campo}}</td> 
+                              <td><button (click)="DeletarContato(cont)" class="btn btn-danger">Deletar</button></td>                              
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-left font-weight-bold">Projeto</h2>  
+
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-center">  
+                                <th></th>                            
+                                <th>NOME</th>                      
+                                <th>DATA</th>
+                                <th>CONTRATANTE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let proj of projetos" class="text-center">                                
+                                <td>
+                                  <input type="checkbox" value="proj.selecionado" (change)="CheckElement(proj)">
+                                </td>                                 
+                                <td>{{proj.nome}}</td>                      
+                                <td>{{proj.dataInicio}}</td> 
+                                <td>{{proj.nomeContratante}}</td>                               
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <button (click)="Salvar()" class="btn btn-success" style="margin: 8px;">Salvar</button>           
+            </form>
+        </div>
+    </div>
+</div>
+
+
